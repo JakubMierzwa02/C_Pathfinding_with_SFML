@@ -6,13 +6,13 @@
 #include <fstream>
 #include <vector>
 
+const int N = 32;
+
 sf::RenderWindow window(sf::VideoMode(1024, 1024), "Pathfinding");
 
 const float gridSize = 32.f;
 sf::RectangleShape block(sf::Vector2f(gridSize, gridSize));
 std::vector<sf::RectangleShape> blocks;
-
-const int N = 32;
 
 void loadMaze(int Maze[][N])
 {
@@ -29,7 +29,6 @@ void loadMaze(int Maze[][N])
 				Maze[i][j] = 0;
 		}
 	}
-	//Maze[0][1] = -3;
 	in.close();
 }
 
@@ -45,8 +44,6 @@ void drawMaze(int Maze[][N])
 				block.setFillColor(sf::Color::Black);
 			else if (Maze[i][j] == -2)
 				block.setFillColor(sf::Color(255, 0, 0, 200));
-			else if (Maze[i][j] == -3)
-				block.setFillColor(sf::Color::Green);
 			else
 				block.setFillColor(sf::Color::White);
 
